@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+    <script defer>
+        /*
+            El localstorage permite alojar informacion a la cual el usuario puede acceder cuando acceda al navegador.
+            La informacion alojada en el localstorage es de tipo string.
+        */
+
+        const guardar_localstorage = () => {
+            const person = {
+                name: 'Martin',
+                age: 28,
+                email: 'xyz@mail.com',
+                coords: {
+                    'lat': 100,
+                    'lng': -10
+                }
+            }
+            const first_name = 'Paola'
+
+            /*
+                name :: clave
+                first_name :: valor
+            */
+           
+            // Añadir datos al localstorage
+            localStorage.setItem('name', first_name)
+            localStorage.setItem('person', JSON.stringify(person))
+        }
+        guardar_localstorage()
+
+        // Obtener datos del localstorage
+        const obtener_localstorage = () => {
+            const name = localStorage.getItem('name')
+            const person = JSON.parse(localStorage.getItem('person'))
+            console.log(name)
+            console.log(person.name)
+        }   
+        obtener_localstorage()
+
+        // Cuando se acceden a datos que no existen en el localstorage se obtiene null
+        
+    </script>
+</head>
+<body>
+    <!--
+        LocalStorage test
+    -->
+</body>
+</html>
